@@ -1,8 +1,11 @@
-import Model, { attr, belongsTo } from '@ember-data/model';
+import Model, { attr, hasMany } from '@ember-data/model';
 
-export default class PostModel extends Model {
-  @attr('string') title;
-  @attr('string') body;
+export default class UserModel extends Model {
+  @attr('string') username;
+  @attr('string') password;
+  @attr('string') email;
+  @attr('string') photoURL;
   @attr('boolean', { defaultValue: false }) isDeleted;
-  @belongsTo('user') owner;
+  @attr('boolean', { defaultValue: false }) isAdmin;
+  @hasMany('post') posts;
 }
