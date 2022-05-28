@@ -1,16 +1,15 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import { storageFor } from 'ember-local-storage';
 //import { action } from '@ember/object';
 
 export default class RegisterRoute extends Route {
   @service store;
   @service router;
-  @storageFor('logged-as') loggedAs;
+  @service session;
 
   beforeModel() {
-    const userId = this.loggedAs.get('id');
-    if (userId) {
+    const { isUserLoggedIn } = this.session;
+    if (isUserLoggedIn) {
       this.router.tarnsitionTo('home');
       return;
     }
