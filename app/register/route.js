@@ -10,7 +10,7 @@ export default class RegisterRoute extends Route {
   beforeModel() {
     const { isUserLoggedIn } = this.session;
     if (isUserLoggedIn) {
-      this.router.tarnsitionTo('home');
+      this.router.transitionTo('home');
       return;
     }
   }
