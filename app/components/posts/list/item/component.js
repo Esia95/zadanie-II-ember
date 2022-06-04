@@ -30,7 +30,6 @@ export default class PostsListItemComponent extends Component {
       return like.post.get('id') === this.currentPost.id;
     });
     console.log(like);
-    //const like = this.store.peekRecord('like', this.current);
     await like.destroyRecord();
   }
 
