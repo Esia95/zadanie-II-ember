@@ -11,4 +11,7 @@
     <Posts::List::Item::Actions::WhoLikesItTooltip @post={{@post}} />
   </a>
 {{/if}}
-<a href='#' class='card-link'>Delete</a>
+
+{{#if this.isCreatedByCurrentUser}}
+  <a href='#' class='card-link' {{on 'click' this.onDeleted}}>Delete</a>
+{{/if}}
