@@ -8,4 +8,8 @@ export default class PostModel extends Model {
   @belongsTo('user', { autoSave: true }) owner;
   @hasMany('like') likes;
   @attr('date', { defaultValue: () => moment() }) createdAt;
+
+  get createdAtInMiliseconds() {
+    return new Date(this.createdAt).getTime();
+  }
 }
