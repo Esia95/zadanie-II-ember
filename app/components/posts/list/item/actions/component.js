@@ -27,7 +27,6 @@ export default class PostsListItemActionsComponent extends Component {
 
   @action
   async onLike() {
-    console.log('Like');
     const createdLike = this.store.createRecord('like', {
       user: this.currentUser,
       post: this.currentPost,
@@ -37,11 +36,9 @@ export default class PostsListItemActionsComponent extends Component {
 
   @action
   async onDislike() {
-    console.log('Dislike');
     const like = this.currentUser.likes.find((like) => {
       return like.post.get('id') === this.currentPost.id;
     });
-    console.log(like);
     await like.destroyRecord();
   }
 
